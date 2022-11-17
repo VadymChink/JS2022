@@ -139,7 +139,7 @@ substitution([9, 8, 0, 4], 2);
 
 let movetoEnd = (arr) => {
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 0 ){
+        if (arr[i] === 0) {
             arr.splice(arr.indexOf(arr[i]), 1);
             arr.push(0);
         }
@@ -151,6 +151,18 @@ movetoEnd([1, 0, 6, 0, 3]);
 movetoEnd([0, 1, 2, 3, 4]);
 movetoEnd([0, 0, 1, 0]);
 
+// Треба оптимальним способом отримати масив імен користувачів, яким понад 20 років.
 
+const users = [
+    {name: 'Iryna', age: 28},
+    {name: 'Olexander', age: 19},
+    {name: 'Olha', age: 18},
+    {name: 'Kateryna', age: 22},
+]
 
+let result = () => {
+    let res = users.filter(a => a.age > 20).map(b => b.name);
+    console.log(res);
+}
 
+result(users);
