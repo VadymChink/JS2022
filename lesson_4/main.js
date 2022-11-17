@@ -108,11 +108,9 @@ for (const product of products) {
      {name: 'olya', age: 31, status: false},
      {name: 'max', age: 31, status: true}
 ];
+
 // за допомоги циклу вивести:
 //     - користувачів зі статусом true
-// - користувачів зі статусом false
-// - користувачів які старші за 30 років
-
 
 for (const user of users) {
     if (user.status){
@@ -120,11 +118,15 @@ for (const user of users) {
     }
 }
 
+// - користувачів зі статусом false
+
 for (const user of users) {
     if (!user.status){
         console.log(user);
     }
 }
+
+// - користувачів які старші за 30 років
 
 for (const user of users) {
     if (user.age > 30){
