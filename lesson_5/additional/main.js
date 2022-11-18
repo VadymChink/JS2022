@@ -118,17 +118,19 @@ numbers(10, 20);
 //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
 
 let substitution = (arr, i) => {
-    let n = arr[i];
-
-    arr[i] = arr[i + 1];
-    arr[i + 1] = n;
-
-    console.log(arr)
+    if (arr[i + 1]) {
+        let n = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = n;
+        return arr;
+    }else {
+        return 'error';
+    }
 }
 
-substitution([9, 8, 0, 4], 0);
-substitution([9, 8, 0, 4], 1);
-substitution([9, 8, 0, 4], 2);
+console.log(substitution([9, 8, 0, 4], 0));
+console.log(substitution([9, 8, 0, 4], 2));
+console.log(substitution([9, 8, 0, 4], 3));
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
