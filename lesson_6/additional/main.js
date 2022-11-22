@@ -228,12 +228,15 @@ let str4 = "Сила тяжіння застосована до центру м�
 // document.writeln(cutString2(str, 5))
 
 let cutString2 = (str, n) => {
+    // let arr = str.split(' ');
+    // let iter = arr.length - n;
+    // for (let i = 0; i < iter; i++) {
+    //     arr.pop(arr[i]);
+    // }
+    // return arr.join(' ')
     let arr = str.split(' ');
-    let iter = arr.length - n;
-    for (let i = 0; i < iter; i++) {
-        arr.pop(arr[i]);
-    }
-    return arr.join(' ')
+    let newString = arr.slice(0, n).join(' ');
+    return  newString;
 }
 
-console.log(cutString2(str4, 2));
+console.log(cutString2(str4, 1));
