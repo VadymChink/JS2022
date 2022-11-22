@@ -234,9 +234,8 @@ let cutString2 = (str, n) => {
     //     arr.pop(arr[i]);
     // }
     // return arr.join(' ')
-    let arr = str.split(' ');
-    let newString = arr.slice(0, n).join(' ');
-    return  newString;
+
+    return str.split(' ').slice(0, n).join(' ');
 }
 
-console.log(cutString2(str4, 1));
+console.log(cutString2(str4, 2));
