@@ -239,3 +239,7 @@ let cutString2 = (str, n) => {
 }
 
 console.log(cutString2(str4, 2));
+
+
+const n = 1_000_000_000;
+console.log(n);
