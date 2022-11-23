@@ -7,30 +7,27 @@
 
 
 let expanded_form = (n) => {
-    let str = n + '';
+    let str = `${n}`;
     let arr = [];
-    let pushEl;
 
-    for (let i = 0; i < str.length - 1; i++) {
-        let f = '';
-        for (let j = 0; j < str.length - 1 - i; j++) {
-            f += '0'
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== '0') {
+            console.log(str[i])
+            arr.push(str[i] + '0'.repeat(str.length - 1 - i));
         }
-        pushEl = str[i] + f;
-
-        if (pushEl[0] !== '0') {
-            arr.push(+pushEl);
-        }
-    }
-    if (str[str.length - 1] !== '0') {
-        arr.push(+str[str.length - 1])
     }
 
     return arr.join(' + ');
 
 }
 
-console.log(expanded_form(420202));  //# return '40 + 2'
-console.log(expanded_form(12));     //# return '10 + 2'
+// 2 варіант
+
+const expanded_from = (val) => `${val}`.split('').reduce((acc, ch, index, chars) =>
+    ch !== '0' ? [...acc, ch + '0'.repeat(chars.length - index - 1)] : acc, []).join(' + ')
+
+
+console.log(expanded_from(420202));  //# return '40 + 2'
+console.log(expanded_from(12));     //# return '10 + 2'
 console.log(expanded_form(70304));  //# return '70000 + 300 + 4'
 console.log(expanded_form(20020));
