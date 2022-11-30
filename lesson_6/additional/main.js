@@ -58,6 +58,28 @@ let n2 = 'Ron---  !@#$%^&*()_+=-   Whisley'
 let n3 = 'Hermione {}|~`";:"/<>?/., __Granger'
 // Написати функцію, яка приймає будь-яке не валідне імя, та нормалізує його в наступнйи вигляд
 
+let normalizes1 = str => {
+    let replaceSymbol = ['`', "'", '_', '-', '"', ',', '.', '/', '|', '{', '}', '?', '~',
+        '!', '@', '#', '$', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '%', '^', '&', '*',
+        '(', ')', '=', '+', '<', '>', ';', ':']
+    for (const stringElement of replaceSymbol)
+        for (const stringElement of replaceSymbol) {
+            str = str.replace(stringElement, ' ');
+        }
+    let newStr = str.split(' ');
+    let string = '';
+    for (let i = 0; i < newStr.length; i++) {
+        if (newStr[i]) {
+            newStr[i] = newStr[i] + ' ';
+            string += newStr[i];
+        }
+    }
+    return string.trim();
+}
+console.log(normalizes1(n1));
+console.log(normalizes1(n2));
+console.log(normalizes1(n3));
+
 let normalizes = str => {
     let newStr = str.replace(/[_\W\d]/g, ' ').split(' ');
     let string = '';
