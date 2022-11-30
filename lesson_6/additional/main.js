@@ -53,18 +53,18 @@ console.log(toUpperCaseFirstLetter('hello'));
 
 
 // - Дано список імен:
-let n1 = 'Harry.....Potter'
-let n2 = 'Ron---     Whisley'
-let n3 = 'Hermione  __Granger'
+let n1 = 'Harry.....@#$  123454Potter'
+let n2 = 'Ron---  !@#$%^&*()_+=-   Whisley'
+let n3 = 'Hermione {}|~`";:"/<>?/., __Granger'
 // Написати функцію, яка приймає будь-яке не валідне імя, та нормалізує його в наступнйи вигляд
 
 let normalizes = str => {
-    let newStr = str.replace(/[-_.]/g, ' ').split(' ');
-    let string;
+    let newStr = str.replace(/[_\W\d]/g, ' ').split(' ');
+    let string = '';
     for (let i = 0; i < newStr.length; i++) {
         if (newStr[i]) {
             newStr[i] = newStr[i] + ' ';
-            string = newStr[i] += newStr[i]
+            string += newStr[i];
         }
     }
     return string.trim();
