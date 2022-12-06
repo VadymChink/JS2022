@@ -53,47 +53,85 @@ console.log(toUpperCaseFirstLetter('hello'));
 
 
 // - Дано список імен:
-let n1 = 'Harry.....@#$  123454Potter'
+let n1 = 'Ha2rry.....@#$123454 potter'
 let n2 = 'Ron---  !@#$%^&*()_+=-   Whisley'
-let n3 = 'Hermione {}|~`";:"/<>?/., __Granger'
+let n3 = 'Herm^ione{}|~`";:"/<>?/.,__ Gra#nger'
+
 // Написати функцію, яка приймає будь-яке не валідне імя, та нормалізує його в наступнйи вигляд
 
 let normalizes1 = str => {
+    let space = str.replace(' ', 'Space');
+
     let replaceSymbol = ['`', "'", '_', '-', '"', ',', '.', '/', '|', '{', '}', '?', '~',
         '!', '@', '#', '$', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '%', '^', '&', '*',
         '(', ')', '=', '+', '<', '>', ';', ':']
+
     for (const stringElement of replaceSymbol)
         for (const stringElement of replaceSymbol) {
-            str = str.replace(stringElement, ' ');
+            space = space.replace(stringElement, ' ');
         }
-    let newStr = str.split(' ');
+    let newStr = space.split(' ');
     let string = '';
     for (let i = 0; i < newStr.length; i++) {
         if (newStr[i]) {
-            newStr[i] = newStr[i] + ' ';
             string += newStr[i];
         }
     }
-    return string.trim();
+    return string.trim().replace('Space', ' ');
 }
 console.log(normalizes1(n1));
 console.log(normalizes1(n2));
 console.log(normalizes1(n3));
 
 let normalizes = str => {
-    let newStr = str.replace(/[_\W\d]/g, ' ').split(' ');
+    let newStr = str.replace(' ', 'Space').replace(/[_\W\d]/g, ' ').split(' ');
+
     let string = '';
     for (let i = 0; i < newStr.length; i++) {
         if (newStr[i]) {
-            newStr[i] = newStr[i] + ' ';
             string += newStr[i];
         }
     }
-    return string.trim();
+    return string.trim().replace('Space', ' ');
 }
 console.log(normalizes(n1));
 console.log(normalizes(n2));
 console.log(normalizes(n3));
+
+function f(str) {
+    let s = str.match(/[A-Za-z]/g).join('');
+    let s2 = '';
+    for (const sElement of s) {
+
+        if (sElement.charCodeAt(0) < 97) {
+            s2 = s2 + ' ' + sElement
+        } else {
+            s2 += sElement
+        }
+    }
+    return s2.trim();
+}
+
+console.log(f(n3));
+
+let str21 = '   !@#$%^&*Harry.. Pott55555er   ';
+
+const norm = (str) => {
+    let string = str.split('').map(value => (value >= 'A' && value <= 'Z') || (value >= 'a' && value <= 'z') ||
+    (value >= '0' && value <= '9') ? value : ' ').join('').trim();
+
+    let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    for (let i = 0; i < arr.length; i++) {
+        while (string.includes('  ') || string.includes(arr[i])) {
+            string = string.replace('  ', '').replace(arr[i], '');
+        }
+    }
+
+    return string;
+}
+let norm1 = norm(str21);
+console.log(norm1);
 
 
 //  - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
