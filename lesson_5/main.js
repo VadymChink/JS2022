@@ -121,7 +121,6 @@ function minNumber(arr) {
 
 minNumber(arrNumber);
 
-
 // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
 let arrN = [1,2,10]
 function sum(arr) {
