@@ -71,6 +71,9 @@ console.log(typeof c);
 // console.log(age);
 
 
+
+
+
 // test
 
 const obj = {
