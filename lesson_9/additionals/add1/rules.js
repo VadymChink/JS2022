@@ -19,3 +19,34 @@ for (const h2ArrElement of h2Arr) {
 
     ul.appendChild(li);
 }
+
+
+// написати рекурсивну функцію, яка збирає всі назви класів з файлу rules.html в окремий масив. масив вивести в консоль
+
+
+let arr = [];
+
+function recurs(value) {
+    let children = value.children;
+
+    for (const child of children) {
+
+        let classList = child.classList;
+
+        for (const classListElement of classList) {
+            arr.push(classListElement);
+        }
+
+        recurs(child);
+    }
+}
+
+recurs(document);
+
+arr = arr.join('').split('rules');
+
+arr[0]= 'rules';
+
+console.log(arr);
+
+
