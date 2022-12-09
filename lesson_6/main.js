@@ -33,7 +33,6 @@ let string = 'Ревуть воли як ясла повні';
 
 let stringToArray = (str) => str.split(' ');
 
-
 let arr = stringToArray(string);
 console.log(arr);
 
