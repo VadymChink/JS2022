@@ -4,12 +4,12 @@ let btnPrev = document.querySelector('.prev');
 let btnNext = document.querySelector('.next');
 let [dot1, dot2, dot3] = document.getElementsByClassName('dot');
 
+btnNext.onclick = () => plusSlides(1);
+btnPrev.onclick = () => plusSlides(-1);
+
 dot1.onclick = () => currentSlides(1);
 dot2.onclick = () => currentSlides(2);
 dot3.onclick = () => currentSlides(3);
-
-btnNext.onclick = () => plusSlides(1);
-btnPrev.onclick = () => plusSlides(-1);
 
 
 let sliderIndex = 1;
@@ -24,12 +24,14 @@ function currentSlides(n) {
 }
 
 function showSlides(n) {
+
     let slides = document.getElementsByClassName('mySlider');
     let dots = document.getElementsByClassName('dot');
 
     if (n > slides.length) {
         sliderIndex = 1;
     }
+
     if (n < 1) {
         sliderIndex = slides.length;
     }
