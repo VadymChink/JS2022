@@ -8,7 +8,7 @@ let ul = document.createElement("ul");
 document.body.appendChild(ul);
 
 
-fetch('http://jsonplaceholder.typicode.com/users')
+fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(users => {
 
