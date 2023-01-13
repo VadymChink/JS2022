@@ -1,0 +1,17 @@
+.wrapper ::selection {
+    background: #2CA200;
+    color: #fff;
+}
+
+.wrapper ::-moz-selection {
+    background: #2CA200;
+    color: #fff;
+}
+
+.border {
+    border: 1px solid blue;
+}
+
+.bgr {
+    background: red;
+}

@@ -17,8 +17,11 @@ function recHTMLTree(el) {
     let arr = [];
 
     function readHTMLTree(htmlElement) {
-        arr.push(htmlElement);
         for (const ele of htmlElement.children) {
+
+            if (ele.children.length === 0) {
+                arr.push(ele);
+            }
             readHTMLTree(ele);
         }
     }
@@ -32,7 +35,8 @@ function recHTMLTree(el) {
         next.disabled = false;
 
         if (arr[i - 1]) {
-            console.log(arr[--i])
+            arr[i].classList.remove('bgr')
+            arr[--i].classList.add('bgr')
         }
 
         if (i === 0) {
@@ -45,34 +49,24 @@ function recHTMLTree(el) {
         prev.disabled = false;
 
         if (arr[i + 1] !== undefined) {
-            console.log(arr[++i])
+            arr[i].classList.remove('bgr')
+            arr[++i].classList.add('bgr')
         }
 
         if (i === arr.length - 1) {
             next.disabled = true
         }
     };
+    console.log(arr)
 }
 
 recHTMLTree(document.body);
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// - Напишіть «Карусель» – стрічку зображень, яку можна гортати ліворуч-праворуч натискаєте на стрілку.
-
-
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділенні сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
+let element = document.querySelector('.wrapper');
+
+document.onselectstart = () => {
+    console.log(document.getSelection().toString());
+};
