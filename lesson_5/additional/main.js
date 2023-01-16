@@ -132,6 +132,21 @@ console.log(substitution([9, 8, 0, 4], 0));
 console.log(substitution([9, 8, 0, 4], 2));
 console.log(substitution([9, 8, 0, 4], 3));
 
+// Створити функцію swap(arr,index1,index2). Функція міняє значення у відповідних індексахю
+// приклад swap([11,22,33,44], 0,1));  // => [22,11,33,44]
+
+let swap = (arr, i1,i2) => {
+        let n = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = n;
+        return arr;
+}
+
+console.log(swap([9, 8, 0, 4], 0,3));
+console.log(swap([11,22,33,44], 0,1));
+console.log(swap([9, 8, 0, 4], 2,3));
+console.log(swap([9, 8, 0, 4], 1,2));
+
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
 // EXAMPLE:
